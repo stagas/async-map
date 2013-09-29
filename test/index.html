@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>async-map</title>
+    <link rel="stylesheet" href="../build/build.css">
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <script>
+
+    var eql = require('yields-eql');
+    var map = require('async-map');
+
+    var count = 2;
+
+    map([1, 2, 3, 4, 5], asyncFn, function(err, res){
+      assert(eql([2, 3, 4, 5, 6], res));
+      --count || done();
+    });
+
+    map([1, 2, 3, 4, 5], asyncFnWithError, function(err, res){
+      assert(3 === errCount);
+      assert(err);
+      assert(!res);
+      --count || done();
+    });
+
+    function asyncFn(el, fn){
+      setTimeout(function(){
+        fn(null, el + 1);
+      }, 0);
+    }
+
+    var errCount = 0;
+    function asyncFnWithError(el, fn){
+      setTimeout(function(){
+        errCount++;
+        if (3 === el) return fn(new Error('some error'));
+        fn(null, el + 1);
+      }, 0);
+    }
+
+    function done(){
+      document.write('all tests pass ok');
+    }
+
+    function assert(expr){
+      if (!expr) throw new Error('failed');
+    }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "async-map",
+  "version": "0.0.1",
+  "description": "asynchronous map",
+  "keywords": ["async", "map"],
+  "author": "stagas <gstagas@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "development": {
+    "yields/eql": "*"
+  },
+  "scripts": ["index.js"]
+}
