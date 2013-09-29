@@ -1,6 +1,6 @@
 {
   "name": "async-map",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "asynchronous map",
   "keywords": ["async", "map"],
   "author": "stagas <gstagas@gmail.com>",
