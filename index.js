@@ -29,7 +29,7 @@ function map(arr, fn, cb){
   var failed = false;
   var count = len;
 
-  for (var i = 0; i < arr.length; i++) {
+  for (var i = 0; i < len; i++) {
     invoke(i);
   }
 
